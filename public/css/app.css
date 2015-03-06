@@ -1,0 +1,57 @@
+.row{
+  margin: 0;
+}
+
+.patricia-face {
+  background: url("../images/patricia.jpg") no-repeat left top;
+  background-size: cover;
+  width: 770px;
+  height: 403px;
+  margin: 0;
+  position: relative;
+  float: left;
+}
+
+.patricia-face textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  resize: none;
+  position: absolute;
+  left: 0;
+  z-index: 10;
+}
+
+.patricia-face textarea.top {
+  top: 0;
+}
+
+.patricia-face textarea.bottom {
+  bottom: 0;
+}
+
+.patricia-face span {
+  width: 96%;
+  margin: 0 2%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  resize: none;
+  position: absolute;
+  left: 0;
+  z-index: 3;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 64px;
+  line-height: 64px;
+  color: #fff;
+  text-align: center;
+}
+
+.patricia-face span.top {
+  top: 0;
+}
+
+.patricia-face span.bottom {
+  bottom: 0;
+}
