@@ -38,18 +38,26 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/">Patricia Dice</a>
+			<a class="navbar-brand" href="{{ url('/') }}">Patricia Dice</a>
 			</div>
 			<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#create">Crear</a></li>
-				<li ><a href="#top-ones">Los mejores</a></li>
+				<li class="active"><a href="{{ url('/') }}#create">Crear</a></li>
+				<li ><a href="{{ url('/') }}#list">Los mejores</a></li>
 			</ul>
 			</div><!--/.nav-collapse -->
 		</div>
 	</nav>
 
 	@yield('content')
+
+	<footer class="footer container">
+		<div class="row">
+			<div class="pull-right col-md-4 madeby">
+				Creado por <a href="http://www.toptal.com/resume/franco-risso">Franco Risso</a>
+			</div>
+		</div>
+	</footer>
 
 	<!-- Scripts -->
 	
@@ -61,6 +69,8 @@
 			xfbml      : true,
 			version    : 'v2.1'
 		});
+
+		initFbActions();
 	};
 
 	(function(d, s, id){

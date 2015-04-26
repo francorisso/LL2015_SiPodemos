@@ -2,6 +2,6 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Phrases extends Model {
-	
+class PhrasesVotes extends Model {
+	protected $table = 'phrases_votes';
 }

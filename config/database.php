@@ -64,6 +64,18 @@ return [
 			'strict'    => false,
 		],
 
+		'mysql.external' => [
+			'driver'    => 'mysql',
+			'host'      => env('DB_HOST', 'localhost'),
+			'database'  => env('DB_DATABASE', 'marianas_patriciaDice'),
+			'username'  => env('DB_USERNAME', 'marianas_francor'),
+			'password'  => env('DB_PASSWORD', 'compaqmv520'),
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+			'strict'    => false,
+		],
+
 		'pgsql' => [
 			'driver'   => 'pgsql',
 			'host'     => env('DB_HOST', 'localhost'),

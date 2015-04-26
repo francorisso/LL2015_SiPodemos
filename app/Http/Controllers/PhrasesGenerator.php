@@ -2,10 +2,11 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Auth;
 use Illuminate\Http\Request;
 
 use App\Classes\TextImgProperties;
+use App\Models\Phrases;
 
 class PhrasesGenerator extends Controller {
 
@@ -16,7 +17,11 @@ class PhrasesGenerator extends Controller {
 	 */
 	public function index()
 	{
-		return \View::make("home");
+		$data = [];
+
+		$data['phrasesTop'] = Phrases::orderBy("votes","desc")->take(10)->get();
+
+		return \View::make("home", $data);
 	}
 
 	/**
@@ -34,18 +39,22 @@ class PhrasesGenerator extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		if (!Auth::check())
+		$user = Auth::user();
+		if (!$user)
 		{
 		    return response()->json(['error' => 'Not authenticated'],403);
 		}
 
-		$text = Request::input("text");
+		$text = $request->input("text");
 
-		
+		$phrase = new Phrases;
+		$phrase->phrase = $text;
+		$phrase->user_id = $user->id;
+		$phrase->save();
 
-		return response()->json(["message"=>"Created successfully"]);
+		return response()->json(["message"=>"Created successfully", "phrase_id"=>$phrase->id]);
 	}
 
 	/**
@@ -56,7 +65,11 @@ class PhrasesGenerator extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$phrase = Phrases::findOrFail( $id );
+
+		return \View::make("phrases.show",[ 
+			"phrase"=>$phrase 
+		]);
 	}
 
 	/**
@@ -93,9 +106,11 @@ class PhrasesGenerator extends Controller {
 	}
 
 
-	public function createImgWithText($text){
+	public function createImgWithText($id){
 		
 		header('Content-Type: image/jpeg');
+		
+		$phrase = Phrases::findOrFail( $id );
 
 		//create img from source
 		$imgSize = [
@@ -110,8 +125,7 @@ class PhrasesGenerator extends Controller {
 		$black = imagecolorallocate($im, 0, 0, 0);
 
 		//parse text into lines
-		$text = mb_strtoupper( $text, 'UTF-8');
-		$lines = preg_split("/::/", trim($text));
+		$lines = preg_split("/<br.?\/\>/", trim($phrase->phrase));
 		$cleaner = function($value){
 			return trim( preg_replace("/([^A-Za-z0-9 ]*)/", "", $value));
 		};

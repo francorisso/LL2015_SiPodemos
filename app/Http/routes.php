@@ -13,9 +13,11 @@
 
 Route::get('/', 'PhrasesGenerator@index');
 
-Route::get('phrases/create-image/{text}', 'PhrasesGenerator@createImgWithText');
+Route::get('phrases/create-image/{id}', 'PhrasesGenerator@createImgWithText');
 
 Route::resource('phrases', 'PhrasesGenerator');
+
+Route::resource('phrases/votes', 'PhrasesVotesController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

@@ -2,6 +2,20 @@
   margin: 0;
 }
 
+#create{
+  width: 100%;
+  background: #f2f2f2;
+  padding: 20px;
+}
+
+footer {
+  padding: 50px 0;
+}
+
+footer .madeby{
+  text-align: right;
+}
+
 .patricia-face {
   background: url("../images/patricia.jpg") no-repeat left top;
   background-size: cover;
@@ -55,3 +69,31 @@
 .patricia-face span.bottom {
   bottom: 0;
 }
+
+.share{
+  position: relative;
+  height: 100%;
+}
+
+.share button {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  margin-left: -100px;
+  width: 200px;
+  z-index: 1000;
+}
+
+#list{
+  padding: 40px 10px;
+}
+
+#list .row{
+  margin: 0 0 25px 0;
+}
+
+#list .row .thumbnail{
+  float: left;
+  margin: 0 20px 0 0;
+}
+

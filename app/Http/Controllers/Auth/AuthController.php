@@ -5,6 +5,8 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
+use App\User;
+use Auth;
 
 class AuthController extends Controller {
 
@@ -33,12 +35,23 @@ class AuthController extends Controller {
 		$this->auth = $auth;
 		$this->registrar = $registrar;
 
-		$this->middleware('guest', ['except' => 'getLogout']);
+		$this->middleware('guest', ['except' => ['getLogout','postLoginWithFbId']]);
 	}
 
-	public function postLoginWithFbId(Request $request){
+	public function postLoginWithFbId( Request $request ){
 		$userId = $request->input("userId");
-		return response()->json(["userID"=>$userId]);
+
+		$user = User::where("fb_id", $userId)->first();
+		if(empty($user)){
+			$user = new User;
+			$user->fb_id = $userId;
+			$user->save();
+		}
+
+		Auth::loginUsingId( $user->id );
+
+		return response()->json(["userId"=>$user->id]);	
+		
 	}
 
 }

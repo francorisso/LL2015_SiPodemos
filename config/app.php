@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'url' => 'http://720devs.local.com/patriciadice/patriciaDice/public',
+	'url' => 'http://clients.marianastariolo.com/patriciadice/patriciaDice/public',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
 	|
 	*/
 
-	'key' => env('APP_KEY', 'SomeRandomString'),
+	'key' => env('APP_KEY', 'asdasdasdDSHAKJSHA{}{}{as4324234'),
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
