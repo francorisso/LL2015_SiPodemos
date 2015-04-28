@@ -55,7 +55,7 @@ return [
 		'mysql' => [
 			'driver'    => 'mysql',
 			'host'      => env('DB_HOST', 'localhost'),
-			'database'  => env('DB_DATABASE', '720devs_PatriciaDice'),
+			'database'  => env('DB_DATABASE', 'LisandroLicari'),
 			'username'  => env('DB_USERNAME', 'root'),
 			'password'  => env('DB_PASSWORD', 'root'),
 			'charset'   => 'utf8',

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="lisanApp">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Patricia dice...</title>
-	
+	<title>Si, Podemos! - Lisandro Licari 2015</title>
+
 	@section('extra_headers')
 	@show
 
@@ -38,12 +38,12 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="{{ url('/') }}">Patricia Dice</a>
+			<a class="navbar-brand" href="{{ url('/') }}">Lisandro.Licari.2015</a>
 			</div>
 			<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="{{ url('/') }}#create">Crear</a></li>
-				<li ><a href="{{ url('/') }}#list">Los mejores</a></li>
+				<li class="active"><a href="{{ url('/') }}#create">Yo puedo</a></li>
+				<li ><a href="{{ url('/') }}#list">Ellos</a></li>
 			</ul>
 			</div><!--/.nav-collapse -->
 		</div>
@@ -60,33 +60,11 @@
 	</footer>
 
 	<!-- Scripts -->
-	
-	<!-- Facebook js SDK -->
-	<script>
-	window.fbAsyncInit = function() {
-		FB.init({
-			appId      : '660407057439433',
-			xfbml      : true,
-			version    : 'v2.1'
-		});
-
-		initFbActions();
-	};
-
-	(function(d, s, id){
-		 var js, fjs = d.getElementsByTagName(s)[0];
-		 if (d.getElementById(id)) {return;}
-		 js = d.createElement(s); js.id = id;
-		 js.src = "//connect.facebook.net/es_LA/sdk.js";
-		 fjs.parentNode.insertBefore(js, fjs);
-	 }(document, 'script', 'facebook-jssdk'));
-	</script>
-
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-	<script src="vendor/jquery-cookie/src/jquery.cookie.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	<script src="{{ asset('bower/bower_components/webcam-directive/dist/webcam.min.js') }}"></script>
 	<script src="{{ asset('js/main.js') }}"></script>
-
 </body>
 </html>

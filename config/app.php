@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'url' => 'http://clients.marianastariolo.com/patriciadice/patriciaDice/public',
+	'url' => 'http://localhost:8000/public',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -3,15 +3,16 @@
 @section("content")
 <div class="container">
 	<div class="jumbotron">
-		<h1>¿Que dijo Patricia?</h1>
+		<h1>Si, Podemos</h1>
 		<p>{{ Config::get("globals.siteDescription") }}</p>
-		<p>Para vos, <strong>¿Qué dijo Patricia?</strong></p>
 	</div>
-	<div class="row" id="create">
+	<div class="row" id="create" ng-controller="AppCtrl">
 		<div class="col-md-9 col-sm-12">
-			<div class="patricia-face">
-				<textarea class="top"></textarea>
-				<span class="top">ESCRIBI ALGO...</span>
+			<div id="video" style="position:relative; width:800px; height:600px;">
+				<div style="position:absolute;top:0; left:0;"><webcam channel="myChannel"></webcam></div>
+				<div style="position:absolute; width: 250px; height: 150px; background:#f00; bottom:20px; left: 50%; margin-left:-125px;">
+					<h2 style="color:#fff; text-align:center;">Si, Podemos.</h2>
+				</div>
 			</div>
 		</div>
 		<div class="col-md-3 col-sm-12 share">
