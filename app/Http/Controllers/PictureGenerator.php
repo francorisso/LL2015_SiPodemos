@@ -4,11 +4,14 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManager;
 
 use App\Classes\TextImgProperties;
 use App\Models\Phrases;
 
-class PhrasesGenerator extends Controller {
+class PictureGenerator extends Controller {
+
+	private $imageManager;
 
 	/**
 	 * Display a listing of the resource.
@@ -39,22 +42,14 @@ class PhrasesGenerator extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(Request $request, ImageManager $imageManager)
 	{
-		$user = Auth::user();
-		if (!$user)
-		{
-		    return response()->json(['error' => 'Not authenticated'],403);
-		}
+		$image = $request->input('image');
+		$img = $imageManager->make($image);
 
-		$text = $request->input("text");
+		$img->save(storage_path() . '/app/images/test.jpg');
 
-		$phrase = new Phrases;
-		$phrase->phrase = $text;
-		$phrase->user_id = $user->id;
-		$phrase->save();
-
-		return response()->json(["message"=>"Created successfully", "phrase_id"=>$phrase->id]);
+		return response()->json(["message"=>"Created successfully"]);
 	}
 
 	/**

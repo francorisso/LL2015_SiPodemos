@@ -2,29 +2,32 @@
 
 @section("content")
 <div class="container">
-	<div class="jumbotron">
-		<h1>Si, Podemos</h1>
-		<p>{{ Config::get("globals.siteDescription") }}</p>
-	</div>
+	<h1 id="fb-welcome"></h1>
 	<div class="row" id="create" ng-controller="AppCtrl">
-		<div class="col-md-9 col-sm-12">
-			<div id="video" style="position:relative; width:800px; height:600px;">
-				<div style="position:absolute;top:0; left:0;"><webcam channel="myChannel"></webcam></div>
-				<div style="position:absolute; width: 250px; height: 150px; background:#f00; bottom:20px; left: 50%; margin-left:-125px;">
-					<h2 style="color:#fff; text-align:center;">Si, Podemos.</h2>
+		<div class="col-sm-7">
+			<div class="video-container">
+				<div class="video-box">
+					<video id="video" width="640" height="480" autoplay></video>
+				</div>
+				<div class="border-decorator"></div>
+				<div class="lisan-logo" id="lisan-logo">
+					<img src="/images/lisandrolicari_50h.png" alt="logo" />
+				</div>
+				<div class="si-podemos-logo" id="logo">
+					<img src="/images/si_podemos_150.jpg" alt="logo" />
 				</div>
 			</div>
 		</div>
-		<div class="col-md-3 col-sm-12 share">
-			<h3>Ahora compartí:</h3>
-			<button class="share-btn btn btn-primary">
-				<i class="glyphicon glyphicon-send"></i>&nbsp;Compartí en Facebook
-			</button>
+		<div class="col-sm-5">
+			<button id="snap">Snap Photo</button>
+		</div>
+		<div class="col-sm-7">
+			<canvas id="canvas" width="640" height="480"></canvas>
 		</div>
 	</div>
 </div>
 <div class="container" id="list">
-	<h2>Los mejores</h2>
+	<h2>Ellos creen en el cambio:</h2>
 	@foreach($phrasesTop as $position=>$phrase)
 		<div class="row" data-id="{{ $phrase->id }}">
 			<div class="col col-md-12">

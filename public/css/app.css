@@ -1,99 +1,39 @@
-.row{
-  margin: 0;
-}
-
-#create{
-  width: 100%;
-  background: #f2f2f2;
-  padding: 20px;
-}
-
-footer {
-  padding: 50px 0;
-}
-
-footer .madeby{
-  text-align: right;
-}
-
-.patricia-face {
-  background: url("../images/patricia.jpg") no-repeat left top;
-  background-size: cover;
-  width: 770px;
-  height: 403px;
-  margin: 0;
+.video-container {
   position: relative;
-  float: left;
-}
+  width: 640px;
+  height: 480px; }
+  .video-container .video-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 90;
+    width: 100%;
+    height: 100%; }
+  .video-container .border-decorator {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: 470px;
+    width: 630px;
+    border: 5px solid #fff;
+    z-index: 100; }
+  .video-container .si-podemos-logo {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    bottom: 15px;
+    left: 50%;
+    margin-left: -75px;
+    z-index: 300; }
+  .video-container .lisan-logo {
+    position: absolute;
+    width: 104px;
+    height: 50px;
+    top: 20px;
+    left: 20px;
+    z-index: 305; }
 
-.patricia-face textarea {
-  width: 100%;
-  height: 100%;
-  border: none;
-  background: transparent;
-  resize: none;
-  position: absolute;
-  left: 0;
-  z-index: 10;
-}
+.navbar {
+  height: 40px; }
 
-.patricia-face textarea.top {
-  top: 0;
-}
-
-.patricia-face textarea.bottom {
-  bottom: 0;
-}
-
-.patricia-face span {
-  width: 96%;
-  margin: 0 2%;
-  height: 100%;
-  border: none;
-  background: transparent;
-  resize: none;
-  position: absolute;
-  left: 0;
-  z-index: 3;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 64px;
-  line-height: 64px;
-  color: #fff;
-  text-align: center;
-}
-
-.patricia-face span.top {
-  top: 0;
-}
-
-.patricia-face span.bottom {
-  bottom: 0;
-}
-
-.share{
-  position: relative;
-  height: 100%;
-}
-
-.share button {
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  margin-left: -100px;
-  width: 200px;
-  z-index: 1000;
-}
-
-#list{
-  padding: 40px 10px;
-}
-
-#list .row{
-  margin: 0 0 25px 0;
-}
-
-#list .row .thumbnail{
-  float: left;
-  margin: 0 20px 0 0;
-}
-
+/*# sourceMappingURL=app.css.map */
