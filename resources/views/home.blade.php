@@ -24,7 +24,7 @@
 				</div>
 				<div class="photo-shooter text-center">
 					<button id="snap" class="btn btn-primary">
-						<i class="fa fa-camera-retro"></i>
+						<i class="fa fa-camera"></i>
 					</button>
 				</div>
 			</div>
