@@ -46,14 +46,6 @@ var llCameraClass = (function(){
 			$('#create .shotCounter').fadeTo(0.9, 1);
 			instance.takePhoto();
 		});
-
-		$(document).on('click', '#fb-share', function(e){
-			FB.ui(
-			{
-			  method: 'share',
-			  href: 'http://lisandrolicari2015.francorisso.com.ar/'
-			}, function(response){});
-		});
 	};
 
 	// Trigger photo take
@@ -113,6 +105,13 @@ var llCameraClass = (function(){
 		$.post('/picture-generator',{
 			'image': finalImage.src,
 			'_token' : _token
+		}).done(function(data){
+			console.log(data);
+			FB.ui(
+			{
+			  method: 'share',
+			  href: 'http://lisandrolicari2015.francorisso.com.ar/'
+			}, function(response){});
 		});
 	};
 
