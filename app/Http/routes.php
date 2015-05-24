@@ -13,8 +13,6 @@
 
 Route::get('/', 'PhrasesGenerator@index');
 
-Route::get('phrases/create-image/{id}', 'PhrasesGenerator@createImgWithText');
-
 Route::resource('picture-generator', 'PictureGenerator');
 
 Route::resource('phrases', 'PhrasesGenerator');

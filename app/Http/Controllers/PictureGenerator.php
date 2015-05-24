@@ -45,7 +45,7 @@ class PictureGenerator extends Controller {
 	public function store(Request $request, ImageManager $imageManager)
 	{
 		$image = $request->input('image');
-		print $image;die;
+
 		$img = $imageManager->make($image);
 
 		$img->save(storage_path() . '/app/images/test.jpg');
