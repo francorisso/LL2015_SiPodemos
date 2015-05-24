@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => 'mysql.local',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -64,12 +64,12 @@ return [
 			'strict'    => false,
 		],
 
-		'mysql.external' => [
+		'mysql.local' => [
 			'driver'    => 'mysql',
 			'host'      => env('DB_HOST', 'localhost'),
-			'database'  => env('DB_DATABASE', 'marianas_patriciaDice'),
-			'username'  => env('DB_USERNAME', 'marianas_francor'),
-			'password'  => env('DB_PASSWORD', 'compaqmv520'),
+			'database'  => env('DB_DATABASE', 'LisandroLicari'),
+			'username'  => env('DB_USERNAME', 'root'),
+			'password'  => env('DB_PASSWORD', 'root'),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

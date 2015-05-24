@@ -3,26 +3,40 @@
 @section("content")
 <div class="container">
 	<h1 id="fb-welcome"></h1>
-	<div class="row" id="create" ng-controller="AppCtrl">
-		<div class="col-sm-7">
-			<div class="video-container">
-				<div class="video-box">
-					<video id="video" width="640" height="480" autoplay></video>
+	<div class="row" id="create">
+		<div class="col-xs-12 text-center">
+			<div class="camera-container">
+				<div class="video-container">
+					<div class="video-box">
+						<video id="video" width="640" height="480" autoplay></video>
+					</div>
+					<div class="border-decorator"></div>
+					<div class="lisan-logo" id="lisan-logo">
+						<img src="/images/lisandrolicari_50h.png" alt="logo" />
+					</div>
+					<div class="si-podemos-logo" id="logo">
+						<img src="/images/si_podemos_150.jpg" alt="logo" />
+					</div>
+					<div class="shotCounter">
+						<div class="loader"></div>
+						<div class="number">3</div>
+					</div>
 				</div>
-				<div class="border-decorator"></div>
-				<div class="lisan-logo" id="lisan-logo">
-					<img src="/images/lisandrolicari_50h.png" alt="logo" />
-				</div>
-				<div class="si-podemos-logo" id="logo">
-					<img src="/images/si_podemos_150.jpg" alt="logo" />
+				<div class="photo-shooter text-center">
+					<button id="snap" class="btn btn-primary">
+						<i class="fa fa-camera-retro"></i>
+					</button>
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-5">
-			<button id="snap">Snap Photo</button>
-		</div>
-		<div class="col-sm-7">
+		<div class="col-xs-12 preview">
+			<h2>Esta es tu imagen:</h2>
 			<canvas id="canvas" width="640" height="480"></canvas>
+			<div class="photo-shooter text-center">
+					<button id="fb-share" class="btn btn-primary">
+						<i class="fa fa-facebook-official"></i>&nbsp; Compartir!
+					</button>
+				</div>
 		</div>
 	</div>
 </div>

@@ -1,80 +1,129 @@
-// Put event listeners into place
-window.addEventListener("DOMContentLoaded", function() {
+var llCameraClass = (function(){
+	var instance = this;
 	// Grab elements, create settings, etc.
-	var canvas = document.getElementById("canvas"),
-		context = canvas.getContext("2d"),
-		video = document.getElementById("video"),
-		videoObj = { "video": true },
-		errBack = function(error) {
-			console.log("Video capture error: ", error.code);
-		};
+	this.canvas 	= document.getElementById("canvas");
+	this.context 	= canvas.getContext("2d"),
+	this.video 		= document.getElementById("video"),
+	this.videoObj = { "video": true },
 
-	// Put video listeners into place
-	if(navigator.getUserMedia) { // Standard
-		navigator.getUserMedia(videoObj, function(stream) {
-			video.src = stream;
-			video.play();
-		}, errBack);
-	} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
-		navigator.webkitGetUserMedia(videoObj, function(stream){
-			video.src = window.URL.createObjectURL(stream);
-			video.play();
-		}, errBack);
-	}
-	else if(navigator.mozGetUserMedia) { // Firefox-prefixed
-		navigator.mozGetUserMedia(videoObj, function(stream){
-			video.src = window.URL.createObjectURL(stream);
-			video.play();
-		}, errBack);
-	}
+	this.shotCounter  = 0;
+	this.shotTimer		= 0;
+
+	this.errBack = function(error) {
+		console.log("Video capture error: ", error.code);
+	};
+
+	this.init = function(){
+		var videoObj 	= instance.videoObj;
+		var errBack 	= instance.errBack;
+
+		// Put video listeners into place
+		if(navigator.getUserMedia) { // Standard
+			navigator.getUserMedia(videoObj, function(stream) {
+				video.src = stream;
+				video.play();
+			}, errBack);
+		} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+			navigator.webkitGetUserMedia(videoObj, function(stream){
+				video.src = window.URL.createObjectURL(stream);
+				video.play();
+			}, errBack);
+		}
+		else if(navigator.mozGetUserMedia) { // Firefox-prefixed
+			navigator.mozGetUserMedia(videoObj, function(stream){
+				video.src = window.URL.createObjectURL(stream);
+				video.play();
+			}, errBack);
+		}
+
+		instance.setEvents();
+	};
+
+	this.setEvents = function(){
+		$(document).on('click', '#snap', function(e){
+			e.preventDefault();
+			instance.shotCounter = 3;
+			$('#create .shotCounter').fadeTo(0.9, 1);
+			instance.takePhoto();
+		});
+
+		$(document).on('click', '#fb-share', function(e){
+			FB.ui(
+			{
+			  method: 'share',
+			  href: 'http://lisandrolicari2015.francorisso.com.ar/'
+			}, function(response){});
+		});
+	};
 
 	// Trigger photo take
-	document.getElementById("snap").addEventListener("click", function() {
-		setTimeout(function(){
-			var canvasObj = $('#canvas');
-			var logo = $('#logo');
-			var logoPosition = logo.position();
-			var watermark = $('#lisan-logo');
-			var watermarkPosition = watermark.position();
+	this.takePhoto = function(){
+		if( instance.shotTimer ){
+			clearTimeout(instance.shotTimer);
+		}
 
-			context.drawImage(video, 0, 0, canvasObj.width(), canvasObj.height());
-			context.drawImage(
-				logo.find('img')[0],
-				logoPosition.left + parseInt( logo.css('marginLeft') ),
-				logoPosition.top,
-				logo.width(),
-				logo.height()
-			);
-			context.drawImage(
-				watermark.find('img')[0],
-				watermarkPosition.left,
-				watermarkPosition.top,
-				watermark.width(),
-				watermark.height()
-			);
-
-			context.beginPath();
-			context.moveTo(7.5,10);
-			context.strokeStyle = "#FFFFFF";
-			context.lineWidth = 5;
-			context.lineTo(canvasObj.width() - 10, 10);
-			context.lineTo(canvasObj.width() - 10, canvasObj.height()-10);
-			context.lineTo(10, canvasObj.height()-10);
-			context.lineTo(10, 10);
-			context.stroke();
-
-			var finalImage = convertCanvasToImage( canvas );
-			$.post('/picture-generator',{
-				'image': finalImage.src,
-				'_token' : _token
+		if(instance.shotCounter > 0){
+			$('#create .shotCounter .number').html( instance.shotCounter );
+			instance.shotCounter--;
+			$('#create .shotCounter').fadeTo(100, 0.7, function(){
+				$('#create .shotCounter').fadeTo(1, 0.9);
+				instance.shotTimer = setTimeout(instance.takePhoto, 1000);
 			});
-		}, 2000);
-	});
+			return;
+		}
+		$('#create .shotCounter .number').html('');
+		$('#create .shotCounter')
+			.fadeTo(500,0);
 
-}, false);
+		var canvasObj = $('#canvas');
+		var logo = $('#logo');
+		var logoPosition = logo.position();
+		var watermark = $('#lisan-logo');
+		var watermarkPosition = watermark.position();
+		var context = instance.context;
+		var video = instance.video;
 
-function convertCanvasToImage(canvas) {
-	var image = new Image();
-	image.src = canvas.toDataURL("image/png");
-	return image;
-}
+		context.drawImage(video, 0, 0, canvasObj.width(), canvasObj.height());
+		context.drawImage(
+			logo.find('img')[0],
+			logoPosition.left + parseInt( logo.css('marginLeft') ),
+			logoPosition.top,
+			logo.width(),
+			logo.height()
+		);
+		context.drawImage(
+			watermark.find('img')[0],
+			watermarkPosition.left,
+			watermarkPosition.top,
+			watermark.width(),
+			watermark.height()
+		);
+
+		context.beginPath();
+		context.moveTo(7.5,10);
+		context.strokeStyle = "#FFFFFF";
+		context.lineWidth = 5;
+		context.lineTo(canvasObj.width() - 10, 10);
+		context.lineTo(canvasObj.width() - 10, canvasObj.height()-10);
+		context.lineTo(10, canvasObj.height()-10);
+		context.lineTo(10, 10);
+		context.stroke();
+
+		var finalImage = instance.convertCanvasToImage( canvas );
+		$.post('/picture-generator',{
+			'image': finalImage.src,
+			'_token' : _token
+		});
+	};
+
+	this.convertCanvasToImage = function(canvas) {
+		var image = new Image();
+		image.src = canvas.toDataURL("image/png");
+		return image;
+	}
+});
+
+$(function(){
+	var camera = new llCameraClass();
+	camera.init();
+});
