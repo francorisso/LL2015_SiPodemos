@@ -71,9 +71,11 @@ var llCameraClass = (function(){
 			});
 			return;
 		}
-		$('#create .shotCounter .number').html('');
+		$('#create .shotCounter .number').html('<i class="fa fa-smile-o"></i>');
 		$('#create .shotCounter')
-			.fadeTo(500,0);
+			.fadeTo(1000,0,function(){
+				$('#create .shotCounter .number').html('');
+			});
 
 		var canvasObj = $('#canvas');
 		var logo = $('#logo');
@@ -110,11 +112,18 @@ var llCameraClass = (function(){
 		context.stroke();
 
 		var finalImage = instance.convertCanvasToImage( canvas );
+		$('#main-loader').fadeIn(500);
 		$.post('/picture-generator',{
 			'image': finalImage.src,
 			'_token' : _token
 		})
 		.done(function(data){
+			var originalText = $('#main-loader h6').html();
+			$('#main-loader h6').html("Listo!");
+			$('#main-loader').fadeOut(500,function(){
+				$('#main-loader h6').html(originalText);
+			});
+			$('#preview-img').attr('src', data.imageUrl);
 			$('#shareModal').modal('show');
 		});
 	};

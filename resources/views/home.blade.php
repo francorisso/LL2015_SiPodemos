@@ -32,33 +32,34 @@
 	</div>
 </div>
 
+<canvas id="canvas" width="640" height="480"></canvas>
 
-<div class="modal fade" id="shareModal">
+<div class="modal fade" id="shareModal" data-backdrop="static">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
+      <div class="modal-body clearfix">
         <div class="col-xs-12 preview">
-					<h2>Esta es tu imagen:</h2>
-					<canvas id="canvas" width="640" height="480"></canvas>
+					<img src="" id="preview-img" />
 				</div>
-      </div>
-      <div class="modal-footer">
-        <button id="fb-share" class="btn btn-primary">
-					<i class="fa fa-facebook-official"></i>&nbsp; Compartir!
-				</button>
+				<div class="col-xs-12 text-center share-container">
+		      <button id="fb-share" class="btn btn-primary">
+						<i class="fa fa-facebook-official"></i>&nbsp; Compartir
+					</button>
+				</div>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<div id="mainLoader">
+	<span class="fa fa-spin fa-spinner"></span>
+	<h6>Aguantá un minuto, estamos guardando la imagen.</h6>
+</div>
 
+@if( !empty($pictures) )
 <div class="container" id="list">
-	<h2>Ellos creen en el cambio:</h2>
-	@foreach($phrasesTop as $position=>$phrase)
+	<h2>Ellos creen que Si Podemos!</h2>
+	@foreach($pictures as $picture)
 		<div class="row" data-id="{{ $phrase->id }}">
 			<div class="col col-md-12">
 				<img src="{{ "phrases/create-image/" . $phrase->id }}" width="500" class="thumbnail"/>
@@ -75,4 +76,5 @@
 		</div>
 	@endforeach
 </div>
+@endif
 @stop

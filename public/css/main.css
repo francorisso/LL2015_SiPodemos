@@ -90,12 +90,83 @@
 }
 
 /* line 93, ../sass/main.scss */
+#canvas {
+  position: absolute;
+  left: -700px;
+  top: 0;
+}
+
+/* line 99, ../sass/main.scss */
 .preview {
   margin: 20px 0 0 0;
   text-align: center;
 }
 
-/* line 98, ../sass/main.scss */
+/* line 104, ../sass/main.scss */
 .navbar {
   height: 40px;
+}
+
+/* line 108, ../sass/main.scss */
+#mainLoader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.8;
+  z-index: 9999999;
+  display: none;
+}
+/* line 119, ../sass/main.scss */
+#mainLoader span {
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  font-size: 24px;
+  color: #fff;
+  margin-left: -12px;
+}
+/* line 128, ../sass/main.scss */
+#mainLoader h6 {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 26px;
+  margin-top: 100px;
+}
+
+/* line 138, ../sass/main.scss */
+#shareModal .modal-dialog {
+  width: 700px;
+}
+/* line 142, ../sass/main.scss */
+#shareModal .share-container {
+  padding: 15px 0;
+}
+/* line 145, ../sass/main.scss */
+#shareModal .share-container .btn {
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: #3b5999;
+  border: 1px solid #3b5999;
+  font-size: 26px;
+  line-height: 36px;
+  font-family: 'Open Sans',sans-serif;
+  vertical-align: top;
+  text-align: left;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.3) inset;
+}
+/* line 158, ../sass/main.scss */
+#shareModal .share-container .btn:hover,
+#shareModal .share-container .btn:focus {
+  background-color: #30487c;
+  border-color: #2a3f6d;
+}
+/* line 164, ../sass/main.scss */
+#shareModal .share-container .btn i {
+  font-size: 24px;
+  line-height: 36px;
+  vertical-align: bottom;
 }

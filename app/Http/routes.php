@@ -11,13 +11,16 @@
 |
 */
 
-Route::get('/', 'PhrasesGenerator@index');
+Route::get('/', 'HomeController@index');
 
 Route::resource('picture-generator', 'PictureGenerator');
 
-Route::resource('phrases', 'PhrasesGenerator');
-
-Route::resource('phrases/votes', 'PhrasesVotesController');
+Route::get(
+  'picture-generator/showImage/{id}',
+  [
+    'uses' => 'PictureGenerator@showImage'
+  ])
+  ->where([ 'id' => '[0-9]+' ]);
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
