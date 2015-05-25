@@ -29,17 +29,33 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 preview">
-			<h2>Esta es tu imagen:</h2>
-			<canvas id="canvas" width="640" height="480"></canvas>
-			<div class="photo-shooter text-center">
-					<button id="fb-share" class="btn btn-primary">
-						<i class="fa fa-facebook-official"></i>&nbsp; Compartir!
-					</button>
-				</div>
-		</div>
 	</div>
 </div>
+
+
+<div class="modal fade" id="shareModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <div class="col-xs-12 preview">
+					<h2>Esta es tu imagen:</h2>
+					<canvas id="canvas" width="640" height="480"></canvas>
+				</div>
+      </div>
+      <div class="modal-footer">
+        <button id="fb-share" class="btn btn-primary">
+					<i class="fa fa-facebook-official"></i>&nbsp; Compartir!
+				</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 <div class="container" id="list">
 	<h2>Ellos creen en el cambio:</h2>
 	@foreach($phrasesTop as $position=>$phrase)
