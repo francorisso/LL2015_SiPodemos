@@ -55,6 +55,11 @@ var llCameraClass = (function(){
 			  href: 'http://lisandrolicari2015.francorisso.com.ar/'
 			}, function(response){});
 		});
+
+		$(document).on('click', '.close-modal', function(e){
+			e.preventDefault();
+			$('#shareModal').modal('hide');
+		});
 	};
 
 	// Trigger photo take

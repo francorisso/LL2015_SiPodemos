@@ -16,6 +16,8 @@ class PicturesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('filename');
+			$table->boolean('confirmed')
+				->default(0);
 			$table->rememberToken();
 			$table->timestamps();
 		});
@@ -28,7 +30,7 @@ class PicturesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::create('pictures');
+		Schema::drop('pictures');
 	}
 
 }

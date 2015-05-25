@@ -27,7 +27,6 @@
 						<i class="fa fa-camera"></i>
 					</button>
 				</div>
-				<a href="#" class="text-right text-danger">Cerrar</a>
 			</div>
 		</div>
 	</div>
@@ -47,6 +46,7 @@
 						<i class="fa fa-facebook-official"></i>&nbsp; Compartir
 					</button>
 				</div>
+				<a href="#" class="text-right text-danger close-modal">Cerrar</a>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -54,7 +54,7 @@
 
 <div id="mainLoader">
 	<span class="fa fa-spin fa-spinner"></span>
-	<h6>Aguantá un minuto, estamos guardando la imagen.</h6>
+	<h6>Un minutito... estamos generando la imagen.</h6>
 </div>
 
 @if( !empty($pictures) )
