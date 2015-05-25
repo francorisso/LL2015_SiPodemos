@@ -2,9 +2,10 @@ var llCameraClass = (function(){
 	var instance = this;
 	// Grab elements, create settings, etc.
 	this.canvas 	= document.getElementById("canvas");
-	this.context 	= canvas.getContext("2d"),
-	this.video 		= document.getElementById("video"),
-	this.videoObj = { "video": true },
+	this.context 	= canvas.getContext("2d");
+	this.video 		= document.getElementById("video");
+	this.videoObj = { "video": true };
+	this.mainLoader = $('#mainLoader');
 
 	this.shotCounter  = 0;
 	this.shotTimer		= 0;
@@ -112,16 +113,16 @@ var llCameraClass = (function(){
 		context.stroke();
 
 		var finalImage = instance.convertCanvasToImage( canvas );
-		$('#main-loader').fadeIn(500);
+		instance.mainLoader.fadeIn(500);
 		$.post('/picture-generator',{
 			'image': finalImage.src,
 			'_token' : _token
 		})
 		.done(function(data){
 			var originalText = $('#main-loader h6').html();
-			$('#main-loader h6').html("Listo!");
-			$('#main-loader').fadeOut(500,function(){
-				$('#main-loader h6').html(originalText);
+			instance.mainLoader.find('h6').html("Listo!");
+			instance.mainLoader.fadeOut(500,function(){
+				instance.mainLoader.find('h6').html(originalText);
 			});
 			$('#preview-img').attr('src', data.imageUrl);
 			$('#shareModal').modal('show');
