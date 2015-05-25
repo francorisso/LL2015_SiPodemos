@@ -27,6 +27,7 @@
 						<i class="fa fa-camera"></i>
 					</button>
 				</div>
+				<a href="#" class="text-right text-danger">Cerrar</a>
 			</div>
 		</div>
 	</div>
