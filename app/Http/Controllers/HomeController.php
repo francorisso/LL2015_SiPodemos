@@ -24,4 +24,33 @@ class HomeController extends Controller {
 		return \View::make("home", $data);
 	}
 
+	public function show($id)
+	{
+		try {
+			$picture = Picture::findOrFail($id);
+			$ogtags = $this->ogtags([
+				'image' => action('PictureGenerator@showImage', [ 'id' => $picture->id ]);,
+			]);
+		}
+		catch(\Exception $e){
+			$picture = null;
+			$ogtags = $this->ogtags();
+		}
+
+		\View::make("home", $data)->nest('ogtags','og.header', $ogtags);
+	}
+
+	private function ogtags($tags=[])
+	{
+		$tags = array_merge_recursive([
+			'type'	=> 'website',
+			'title' => 'Sí Podemos - Lisandro Licari 2015',
+			'url'   => 'http://lisandrolicari2015.francorisso.com.ar/' . $id,
+			'description' => "Hace click en la imagen y generá tu propio cartel. Juntos podemos desafiar la vieja política y recuperar los sueños de nuestra ciudad. #SíPodemos.",
+			'image' => '',
+ 		], $tags);
+
+ 		return $tags;
+	}
+
 }
