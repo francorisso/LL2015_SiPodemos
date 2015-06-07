@@ -108,7 +108,7 @@ class PictureGenerator extends Controller {
 	 */
 	public function update($id)
 	{
-		$action = $this->input('action',null);
+		$action = Request::input('action',null);
 		$picture = Picture::findOrFail( $id );
 		switch($action){
 			case 'confirm':
