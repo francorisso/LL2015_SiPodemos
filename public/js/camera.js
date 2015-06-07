@@ -37,7 +37,7 @@ var llCameraClass = (function(){
 			}, errBack);
 		}
 
-		instance.video.addEventListener("onplaying", function(){
+		instance.video.loadstart(function(){
 			console.log('playing');
 			$('.camera-container').css({
 				'width'  : instance.video.videoWidth + 'px',
