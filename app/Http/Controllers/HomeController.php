@@ -31,8 +31,6 @@ class HomeController extends Controller {
 		try {
 			$picture = Picture::findOrFail($id);
 			$image = action('PictureGenerator@showImage', [ 'id' => $picture->id ]);
-			print_r($image);die;
-			$image = $image[1];
 			$ogtags = $this->ogtags([
 				'description' => "Hace click en la imagen y generá tu propio cartel. Juntos podemos desafiar la vieja política y recuperar los sueños de nuestra ciudad. #SíPodemos.",
 				'image' => $image,
