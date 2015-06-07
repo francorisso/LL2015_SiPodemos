@@ -37,9 +37,11 @@ var llCameraClass = (function(){
 			}, errBack);
 		}
 
-		$('.camera-container').width( instance.video.videoWidth );
-		$('.camera-container').height( instance.video.videoHeight );
-		$('.modal-dialog').width( instance.video.videoWidth + 60 );
+		instance.video.addEventListener("onplaying", function(){
+			$('.camera-container').width( instance.video.videoWidth );
+			$('.camera-container').height( instance.video.videoHeight );
+			$('.modal-dialog').width( instance.video.videoWidth + 60 );
+		});
 
 		instance.setEvents();
 	};
