@@ -48,7 +48,7 @@ class HomeController extends Controller {
 		$tags = array_merge_recursive([
 			'type'	=> 'website',
 			'title' => 'Sí Podemos - Lisandro Licari 2015',
-			'url'   => 'http://lisandrolicari2015.francorisso.com.ar/' . $id,
+			'url'   => 'http://lisandrolicari2015.francorisso.com.ar/',
 			'description' => "Hace click en la imagen y generá tu propio cartel. Juntos podemos desafiar la vieja política y recuperar los sueños de nuestra ciudad. #SíPodemos.",
 			'image' => '',
  		], $tags);
