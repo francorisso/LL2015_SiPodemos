@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-	<link href="{{ asset('/css/main.css') }}" rel="stylesheet">
+	<link href="{{ asset('/css/main.css?v=1.0.1') }}" rel="stylesheet">
 	<link href="{{ asset('/css/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 	<script type="text/javascript">
 		var baseUrl = "{{ Config::get('app.url') }}";
