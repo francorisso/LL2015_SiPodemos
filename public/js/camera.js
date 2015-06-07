@@ -129,9 +129,13 @@ var llCameraClass = (function(){
 				  method: 'share',
 				  href: 'http://sipodemos.lisandrolicari2015.com.ar/' + data.picture.id
 				}, function(response){
-					$.post('/picture-generator/'+data.picture.id,{
-						'action':'confirm',
-						'_token' : _token
+					$.ajax({
+					  url   : '/picture-generator/'+data.picture.id,
+					  type  : 'put',
+					  data  : {
+							'action' : 'confirm',
+							'_token' : _token
+						}
 					});
 				});
 			});
