@@ -8,7 +8,7 @@
 			<div class="camera-container">
 				<div class="video-container">
 					<div class="video-box">
-						<video id="video" width="640" height="480" autoplay></video>
+						<video id="video" autoplay></video>
 					</div>
 					<div class="border-decorator"></div>
 					<div class="lisan-logo" id="lisan-logo">

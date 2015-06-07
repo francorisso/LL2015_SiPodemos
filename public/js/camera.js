@@ -37,8 +37,8 @@ var llCameraClass = (function(){
 			}, errBack);
 		}
 
-		instance.video.onloadstart = function(){
-			console.log('playing', instance.video);
+		instance.video.onloadedmetadata = function(){
+			console.log('playing', instance.video.videoWidth);
 			$('.camera-container').css({
 				'width'  : instance.video.videoWidth + 'px',
 				'height' : instance.video.videoHeight + 'px'
