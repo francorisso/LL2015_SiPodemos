@@ -106,11 +106,21 @@ var llCameraClass = (function(){
 				video.videoHeight = canvasObj.height();
 				video.videoWidth  = video.videoWidth * adjustment;
 			}
+			if( canvasObj.width() < video.videoWidth ){
+				var adjustment = canvasObj.width()/video.videoWidth;
+				video.videoWidth = canvasObj.width();
+				video.videoHeight  = video.videoHeight * adjustment;
+			}
 		} else {
 			if( canvasObj.width() < video.videoWidth ){
 				var adjustment = canvasObj.width()/video.videoWidth;
 				video.videoWidth = canvasObj.width();
 				video.videoHeight  = video.videoHeight * adjustment;
+			}
+			if( canvasObj.height() < video.videoHeight ){
+				var adjustment = canvasObj.height()/video.videoHeight;
+				video.videoHeight = canvasObj.height();
+				video.videoWidth  = video.videoWidth * adjustment;
 			}
 		}
 		var offset = {
