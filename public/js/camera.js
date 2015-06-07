@@ -43,7 +43,6 @@ var llCameraClass = (function(){
 				'width'  : instance.video.videoWidth + 'px',
 				'height' : instance.video.videoHeight + 'px'
 			});
-			 );
 			$('.modal-dialog').css({
 				'width':(instance.video.videoWidth + 60) + 'px'
 			});
