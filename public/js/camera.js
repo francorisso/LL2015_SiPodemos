@@ -40,7 +40,7 @@ var llCameraClass = (function(){
 		instance.video.onloadedmetadata = function(){
 			$('.camera-container,.video-container').css({
 				'width'  : instance.video.videoWidth + 'px',
-				'height' : (instance.video.videoHeight + ) + 'px'
+				'height' : (instance.video.videoHeight + 'px'
 			});
 			$('.modal-dialog').css({
 				'width':(instance.video.videoWidth + 60) + 'px'
