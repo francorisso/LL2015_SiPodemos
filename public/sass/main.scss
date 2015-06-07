@@ -135,6 +135,8 @@ $videoHeight	: 480px;
 }
 
 #shareModal {
+	z-index: 999999999;
+
 	.modal-dialog{
 		width: 700px;
 	}
