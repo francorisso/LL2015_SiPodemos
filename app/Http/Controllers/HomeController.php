@@ -39,7 +39,7 @@ class HomeController extends Controller {
 			$picture = null;
 			$ogtags = $this->ogtags();
 		}
-
+		$data = [];
 		\View::make("home", $data)->nest('ogtags','og.header', $ogtags);
 	}
 
