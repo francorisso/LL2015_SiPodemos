@@ -44,7 +44,7 @@ class HomeController extends Controller {
 			'ogtags'=>$ogtags
 		]);
 
-		return \View::make("home", $data)
+		return \View::make("home", $data);
 	}
 
 	private function ogtags($tags=[])
