@@ -10,7 +10,9 @@
 	@show
 
 	@if(!empty($ogtags))
-		{{ $ogtags }}
+		@foreach ( $ogtags as $key => $value )
+		  <meta property="og:{{ $key }}" content="{{{ $value }}}" />
+		@endforeach
 	@endif
 
 	<!-- Latest compiled and minified CSS -->
