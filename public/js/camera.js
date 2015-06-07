@@ -83,7 +83,8 @@ var llCameraClass = (function(){
 		var context = instance.context;
 		var video = instance.video;
 		var offset = 139;
-		context.drawImage(video, offset, 0, canvasObj.width()-offset, canvasObj.height());
+		console.log(video.width());
+		context.drawImage(video, offset, 0, video.width(), canvasObj.height());
 		context.drawImage(
 			logo.find('img')[0],
 			logoPosition.left + parseInt( logo.css('marginLeft') ) + offset,
@@ -122,6 +123,7 @@ var llCameraClass = (function(){
 				instance.mainLoader.find('h6').html(originalText);
 			});
 			$('#preview-img').attr('src', data.imageUrl);
+			$('#preview-img').attr('width',640);
 			$('#shareModal').modal('show');
 			$('#fb-share').unbind('click').click(function(e){
 				FB.ui(
