@@ -33,7 +33,7 @@ class HomeController extends Controller {
 			$image = action('PictureGenerator@showImage', [ 'id' => $picture->id ]);
 			$ogtags = $this->ogtags([
 				'description' => "Hace click en la imagen y generá tu propio cartel. Juntos podemos desafiar la vieja política y recuperar los sueños de nuestra ciudad. #SíPodemos.",
-				'url' => 'http://lisandrolicari2015.francorisso.com.ar/'.$picture->id,
+				'url' => 'http://sipodemos.lisandrolicari2015.com.ar/'.$picture->id,
 				'image' => $image,
 			]);
 		}
@@ -52,7 +52,7 @@ class HomeController extends Controller {
 		$tags = array_merge([
 			'type'	=> 'website',
 			'title' => 'Sí Podemos - Lisandro Licari 2015',
-			'url'   => 'http://lisandrolicari2015.francorisso.com.ar/',
+			'url'   => 'http://sipodemos.lisandrolicari2015.com.ar/',
 			'description' => "Hace click en la imagen y generá tu propio cartel. Juntos podemos desafiar la vieja política y recuperar los sueños de nuestra ciudad. #SíPodemos.",
 			'image' => '',
  		], $tags);
