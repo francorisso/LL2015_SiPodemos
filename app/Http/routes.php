@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/{id}', 'HomeController@show')
-  ->where([ 'id' => '[0-9]+' ]);;
+  ->where([ 'id' => '[0-9]+' ]);
 
 
 Route::resource('picture-generator', 'PictureGenerator');
