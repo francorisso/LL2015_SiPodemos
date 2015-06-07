@@ -64,7 +64,7 @@
 </div>
 
 @if( !empty($pictures) )
-<div class="container" id="list">
+<div class="container" id="list" style="margin-top:100px;">
 	<h2>Ellos creen que Si Podemos!</h2>
 	@foreach($pictures as $picture)
 		<div class="row" data-id="{{ $picture->id }}">
