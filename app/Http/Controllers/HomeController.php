@@ -40,7 +40,7 @@ class HomeController extends Controller {
 			$picture = null;
 			$ogtags = $this->ogtags();
 		}
-
+		print_r($ogtags);die;
 		$data = [];
 		$data['ogtags'] = $ogtags;
 
