@@ -28,7 +28,6 @@ class HomeController extends Controller {
 
 	public function show($id)
 	{
-		$picture = Picture::findOrFail(intval($id));
 		try {
 			$picture = Picture::findOrFail($id);
 			$ogtags = $this->ogtags([
@@ -40,6 +39,7 @@ class HomeController extends Controller {
 			$picture = null;
 			$ogtags = $this->ogtags();
 		}
+		print_r($ogtags);die;
 		$data = [];
 		$data['ogtags'] = $ogtags;
 
