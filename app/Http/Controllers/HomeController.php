@@ -49,7 +49,7 @@ class HomeController extends Controller {
 
 	private function ogtags($tags=[])
 	{
-		$tags = array_merge_recursive([
+		$tags = array_merge([
 			'type'	=> 'website',
 			'title' => 'Sí Podemos - Lisandro Licari 2015',
 			'url'   => 'http://lisandrolicari2015.francorisso.com.ar/',
