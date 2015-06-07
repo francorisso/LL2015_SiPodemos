@@ -67,18 +67,9 @@
 <div class="container" id="list">
 	<h2>Ellos creen que Si Podemos!</h2>
 	@foreach($pictures as $picture)
-		<div class="row" data-id="{{ $phrase->id }}">
-			<div class="col col-md-12">
-				<img src="{{ "phrases/create-image/" . $phrase->id }}" width="500" class="thumbnail"/>
-				<div class="right pull-left">
-					<blockquote>
-						<p>{{ nl2br(trim($phrase->phrase)) }}.</p>
-					</blockquote>
-					<p>
-						<i class="glyphicon glyphicon-heart-empty"></i> <span class="votes">{{ $phrase->votes }}</span>
-					</p>
-					<div class="fb-like" data-href="{{ url("phrases/".$phrase->id) }}" data-layout="standard" data-action="like" data-show-faces="true" data-share="true" data-phrase-id="{{ $phrase->id }}"></div>
-				</div>
+		<div class="row" data-id="{{ $picture->id }}">
+			<div class="col col-xs-12">
+				<img src="{{ "/picture-generator/showImage/" . $picture->id }}" width="500" class="thumbnail"/>
 			</div>
 		</div>
 	@endforeach

@@ -23,6 +23,8 @@ class HomeController extends Controller {
 	public function index()
 	{
 		$data = [];
+		$data['pictures'] = Picture::where('confirmed',1)->get();
+		$picture = Picture::findOrFail($id);
 		return \View::make("home", $data);
 	}
 
@@ -43,6 +45,7 @@ class HomeController extends Controller {
 		}
 		$data = [];
 		$data['ogtags'] = $ogtags;
+		$data['pictures'] = Picture::where('confirmed',1)->get();
 
 		return \View::make("home", $data);
 	}
