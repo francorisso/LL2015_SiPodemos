@@ -31,8 +31,14 @@
 		</div>
 	</div>
 </div>
+<!--
+	fb size: 560x292
+	480/292  = 1.64
+	560*1.64 = 918
 
-<canvas id="canvas" width="640" height="480"></canvas>
+	912-640
+-->
+<canvas id="canvas" width="918" height="480"></canvas>
 
 <div class="modal fade" id="shareModal" data-backdrop="static">
   <div class="modal-dialog">

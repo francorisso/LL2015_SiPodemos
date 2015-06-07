@@ -82,18 +82,18 @@ var llCameraClass = (function(){
 		var watermarkPosition = watermark.position();
 		var context = instance.context;
 		var video = instance.video;
-
-		context.drawImage(video, 0, 0, canvasObj.width(), canvasObj.height());
+		var offset = 139;
+		context.drawImage(video, offset, 0, canvasObj.width()-offset, canvasObj.height());
 		context.drawImage(
 			logo.find('img')[0],
-			logoPosition.left + parseInt( logo.css('marginLeft') ),
+			logoPosition.left + parseInt( logo.css('marginLeft') ) + offset,
 			logoPosition.top,
 			logo.width(),
 			logo.height()
 		);
 		context.drawImage(
 			watermark.find('img')[0],
-			watermarkPosition.left,
+			watermarkPosition.left + offset,
 			watermarkPosition.top,
 			watermark.width(),
 			watermark.height()
