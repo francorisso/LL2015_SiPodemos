@@ -28,7 +28,7 @@ class HomeController extends Controller {
 
 	public function show($id)
 	{
-		$picture = Picture::findOrFail($id);
+		$picture = Picture::findOrFail(intval($id));
 		try {
 			$picture = Picture::findOrFail($id);
 			$ogtags = $this->ogtags([
