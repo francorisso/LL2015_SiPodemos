@@ -82,10 +82,6 @@ var llCameraClass = (function(){
 		var watermarkPosition = watermark.position();
 		var context = instance.context;
 		var video = instance.video;
-		var offset = {
-			'x' : (canvasObj.width()  - video.videoWidth)/2,
-			'y' : (canvasObj.height() - video.videoHeight)/2
-		};
 		//horizontal
 		if(video.videoWidth > video.videoHeight){
 			if( canvasObj.height() < video.videoHeight ){
@@ -94,8 +90,16 @@ var llCameraClass = (function(){
 				video.videoWidth  = video.videoWidth * adjustment;
 			}
 		} else {
-
+			if( canvasObj.width() < video.videoWidth ){
+				var adjustment = canvasObj.width()/video.videoWidth;
+				video.videoWidth = canvasObj.width();
+				video.videoHeight  = video.videoHeight * adjustment;
+			}
 		}
+		var offset = {
+			'x' : (canvasObj.width()  - video.videoWidth)/2,
+			'y' : (canvasObj.height() - video.videoHeight)/2
+		};
 
 		context.drawImage(video, offset.x, offset.y, video.videoWidth, video.videoHeight);
 		context.drawImage(
