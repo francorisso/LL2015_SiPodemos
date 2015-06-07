@@ -83,7 +83,7 @@ var llCameraClass = (function(){
 		var context = instance.context;
 		var video = instance.video;
 		var offset = {
-			'x' : (canvasObj.width()  - video.videoWidth)/2
+			'x' : (canvasObj.width()  - video.videoWidth)/2,
 			'y' : (canvasObj.height() - video.videoWidth)/2
 		};
 		console.log(video.videoWidth, video.videoHeight);
