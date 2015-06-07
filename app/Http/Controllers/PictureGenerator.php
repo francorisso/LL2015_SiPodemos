@@ -116,7 +116,7 @@ class PictureGenerator extends Controller {
 				$picture->save();
 				break;
 		}
-		return Response::json(['status'=>'ok']);
+		return \Response::json(['status'=>'ok']);
 	}
 
 	/**
