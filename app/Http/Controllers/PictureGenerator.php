@@ -43,9 +43,9 @@ class PictureGenerator extends Controller {
 
 		$img = $imageManager->make($image);
 
-		$imagePath = 'I-believe-'. md5(uniqid()) .'.png';
+		$imagePath = 'I-believe-'. md5(uniqid()) .'.jpeg';
 		while( file_exists(storage_path() . '/app/images/' . $imagePath) ){
-			$imagePath = 'I-believe-'. md5(uniqid()) .'.png';
+			$imagePath = 'I-believe-'. md5(uniqid()) .'.jpeg';
 		}
 		$img->save( storage_path() . '/app/images/' . $imagePath );
 
@@ -84,7 +84,7 @@ class PictureGenerator extends Controller {
 	public function showImage($id){
 		$picture = Picture::findOrFail( $id );
 
-		header("Content-type: image/png");
+		header("Content-type: image/jpeg");
 		echo readfile($picture->getImagePath());
 		return;
 	}
