@@ -48,14 +48,6 @@ var llCameraClass = (function(){
 			instance.takePhoto();
 		});
 
-		$(document).on('click', '#fb-share', function(e){
-			FB.ui(
-			{
-			  method: 'share',
-			  href: 'http://lisandrolicari2015.francorisso.com.ar/'
-			}, function(response){});
-		});
-
 		$(document).on('click', '.close-modal', function(e){
 			e.preventDefault();
 			$('#shareModal').modal('hide');
@@ -131,6 +123,15 @@ var llCameraClass = (function(){
 			});
 			$('#preview-img').attr('src', data.imageUrl);
 			$('#shareModal').modal('show');
+			$('#fb-share').unbind('click').click(function(e){
+				FB.ui(
+				{
+				  method: 'share',
+				  href: 'http://sipodemos.lisandrolicari2015.com.ar/' + data.picture.id
+				}, function(response){
+					$.post('/picture-generator/'+data.picture.id,{'action':'confirm'});
+				});
+			});
 		});
 	};
 
