@@ -38,9 +38,15 @@ var llCameraClass = (function(){
 		}
 
 		instance.video.addEventListener("onplaying", function(){
-			$('.camera-container').width( instance.video.videoWidth );
-			$('.camera-container').height( instance.video.videoHeight );
-			$('.modal-dialog').width( instance.video.videoWidth + 60 );
+			console.log('playing');
+			$('.camera-container').css({
+				'width'  : instance.video.videoWidth + 'px',
+				'height' : instance.video.videoHeight + 'px'
+			});
+			 );
+			$('.modal-dialog').css({
+				'width':(instance.video.videoWidth + 60) + 'px'
+			});
 		});
 
 		instance.setEvents();
