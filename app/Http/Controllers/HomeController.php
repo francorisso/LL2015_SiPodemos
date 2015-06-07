@@ -24,7 +24,7 @@ class HomeController extends Controller {
 	{
 		$data = [];
 		$data['pictures'] = Picture::where('confirmed',1)->get();
-		$picture = Picture::findOrFail($id);
+
 		return \View::make("home", $data);
 	}
 
