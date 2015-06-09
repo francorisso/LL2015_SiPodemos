@@ -15,13 +15,6 @@ var llCameraClass = (function(){
 	};
 
 	this.init = function(){
-		//If is facebook in app browser
-		if (Request.UserAgent.IndexOf("FBAN") > -1)
-		{
-			$('#facebook-overlay').show();
-			return;
-		}
-
 		var videoObj 	= instance.videoObj;
 		var errBack 	= instance.errBack;
 
@@ -45,6 +38,7 @@ var llCameraClass = (function(){
 		}
 
 		instance.video.onloadedmetadata = function(){
+			$('#facebook-overlay').remove();
 			$('.camera-container,.video-container').css({
 				'width'  : instance.video.videoWidth + 'px',
 				'height' : instance.video.videoHeight + 'px'
