@@ -37,7 +37,7 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row" style="background:#fff; float:left; width:100%; height:100%; z-index:9999999999;" id="facebook-overlay">
+		<div class="row" style="background:#fff; float:left; width:100%; height:900px; z-index:9999999999;" id="facebook-overlay">
 			<div class="col-xs-12" style="text-align:center;">
 				<h2>Para tomar la foto sigue las instrucciones:</h2>
 
