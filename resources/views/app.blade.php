@@ -37,14 +37,14 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row" style="background:#fff; position:fixed; width:100%; height:100%; z-index:9999999999;" id="facebook-overlay">
-			<div class="col-xs-12">
+		<div class="row" style="background:#fff; float:left; width:100%; height:100%; z-index:9999999999;" id="facebook-overlay">
+			<div class="col-xs-12" style="text-align:center;">
 				<h2>Para tomar la foto sigue las instrucciones:</h2>
 
-				<h3>1. Haz click en la esquina superior derecha, en los 3 puntitos</h3>
+				<h4>1. Haz click en la esquina superior derecha, en los 3 puntitos</h4>
 				<img src="/images/tuto-1.png" style="width:70%" />
 
-				<h3>2. Haz click en abrir en Chrome dentro de las opciones</h3>
+				<h4>2. Haz click en abrir en Chrome dentro de las opciones</h4>
 				<img src="/images/tuto-2.png" style="width:70%" />
 			</div>
 		</div>
