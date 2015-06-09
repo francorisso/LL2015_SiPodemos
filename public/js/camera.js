@@ -117,7 +117,7 @@ var llCameraClass = (function(){
 		}
 		var offset = {
 			'x' : (canvasObj.width()  - video.videoWidth)/2,
-			'y' : (canvasObj.height() - video.videoHeight)
+			'y' : (canvasObj.height() - video.videoHeight)/2
 		};
 
 		context.drawImage(video, offset.x, offset.y, video.videoWidth, video.videoHeight);
