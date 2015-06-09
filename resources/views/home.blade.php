@@ -2,7 +2,6 @@
 
 @section("content")
 <div class="container">
-	<h1 id="fb-welcome"></h1>
 	<div class="row" id="create">
 		<div class="col-xs-12 text-center">
 			<div class="camera-container">

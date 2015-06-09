@@ -15,6 +15,13 @@ var llCameraClass = (function(){
 	};
 
 	this.init = function(){
+		//If is facebook in app browser
+		if (Request.UserAgent.IndexOf("FBAN") > -1)
+		{
+			$('#facebook-overlay').show();
+			return;
+		}
+
 		var videoObj 	= instance.videoObj;
 		var errBack 	= instance.errBack;
 
