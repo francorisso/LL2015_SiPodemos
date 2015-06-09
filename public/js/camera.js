@@ -109,11 +109,15 @@ var llCameraClass = (function(){
 				video.videoHeight  = video.videoHeight * adjustment;
 			}
 		} else {
-
+			if( canvasObj.height() < video.videoHeight ){
+				var adjustment = canvasObj.height()/video.videoHeight;
+				video.videoHeight = canvasObj.height();
+				video.videoWidth  = video.videoWidth * adjustment;
+			}
 		}
 		var offset = {
 			'x' : (canvasObj.width()  - video.videoWidth)/2,
-			'y' : (canvasObj.height() - video.videoHeight)/2
+			'y' : (canvasObj.height() - video.videoHeight)
 		};
 
 		context.drawImage(video, offset.x, offset.y, video.videoWidth, video.videoHeight);
