@@ -36,7 +36,7 @@
 	<![endif]-->
 </head>
 <body>
-	<div style="position:fixed; width:100%; height:100%; display: none;" id="facebook-overlay">
+	<div style="position:fixed; width:100%; height:100%; display: none; z-index:9999999999;" id="facebook-overlay">
 			<h2>Para tomar la foto sigue las instrucciones:</h2>
 
 			<h3>1. Haz click en la esquina superior derecha, en los 3 puntitos</h3>
@@ -70,6 +70,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-	<script src="{{ asset('js/camera.js') }}"></script>
+	<script src="{{ asset('js/camera.js?v=1.0.2') }}"></script>
 </body>
 </html>
