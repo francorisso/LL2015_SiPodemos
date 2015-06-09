@@ -109,9 +109,7 @@ var llCameraClass = (function(){
 				video.videoHeight  = video.videoHeight * adjustment;
 			}
 		} else {
-			var adjustment = canvasObj.height()/video.videoHeight;
-			video.videoHeight = canvasObj.height();
-			video.videoWidth  = video.videoWidth * adjustment;
+
 		}
 		var offset = {
 			'x' : (canvasObj.width()  - video.videoWidth)/2,
