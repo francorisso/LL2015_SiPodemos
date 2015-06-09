@@ -124,7 +124,7 @@ var llCameraClass = (function(){
 		context.drawImage(
 			logo.find('img')[0],
 			logoPosition.left + parseInt( logo.css('marginLeft') ) + offset.x,
-			logoPosition.top - offset.y,
+			Math.min( canvasObj.height()-logo.height(), logoPosition.top + offset.y),
 			logo.width(),
 			logo.height()
 		);
